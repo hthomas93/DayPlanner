@@ -13,5 +13,5 @@
     * If the text field is white, that hour is in the future.
 * At midnight, the text fields will clear for the coming day.
 
-![Photo-example](assets/images/Screen Shot 2019-12-20 at 4.55.19 PM.png)
+![Photo-example](assets/images/dayplannersc.png)
 
