@@ -21,41 +21,44 @@ $(document).ready(function () {
     }
 
 
-    $("#save-nine").on("click", function (event) {
-        event.preventDefault();
-        console.log("It works")
-        storedTodos[0] = $(nineInput).val();
-        console.log(storedTodos);
-        storeTodos();
-        $(nineInput).attr("placeholder", storedTodos[0]);
-    })
+    function showTimes() {
+        //dynamically add html
+        timesArray.forEach(number => {
+            var todoText = localStorage.getItem(number) || "";
+            html = `<div class="row">
+        <div class="col-md-1 date">
+            <p id="eleven">${number}</p>
+        </div>
+        <input class="form-control form-control-lg col-md-10" type="text" id="input-${number}" value=${todoText}>
 
-    $("#save-ten").on("click", function (event) {
-        event.preventDefault();
-        console.log("It works")
-        storedTodos[1] = $(tenInput).val();
-        console.log(storedTodos);
-        storeTodos();
-        $(tenInput).attr("placeholder", storedTodos[1]);
-    })
+        <button class="col-md-1 btn btn-success far fa-save time-save" data-id=${number}></button>
 
-    $("#save-eleven").on("click", function (event) {
-        event.preventDefault();
-        console.log("It works")
-        storedTodos[2] = $(elevenInput).val();
-        console.log(storedTodos);
-        storeTodos();
-        $(elevenInput).attr("placeholder", storedTodos[2]);
-    })
+        </div>`
+
+            $("#timeslots").append(html);
+        })
 
 
+    }
+
+    showTimes();
 });
 
+$('#timeslots').on('click', '.time-save', function (event) {
+    event.preventDefault();
+    console.log("It works")
+    var i = parseInt(this.dataset.id);
+    var value = $(`#input-${i}`).val()
+    //store in local storage
+    localStorage.setItem(i, value);
+
+    // storedTodos[i];
+    // console.log(storedTodos);
+    // storeTodos();
+    //$(`input-${i}`).attr("placeholder", storedTodos[2]);
+})
 
 
-// don't forget preventDefault()
-// when you click on the adjacent save button
-// the value of the form (with appropriate ID) is stored along with the time slot to storedTodos
-// 
+var timesArray = [9, 10, 11, 12, 1, 2, 3, 4, 5]
 
-// function
+
