@@ -1,0 +1,30 @@
+.save {
+    background-color:maroon;
+    border: 1px solid gray;
+}
+
+.date {
+    display: block;
+    text-align: right;
+    border-bottom: 1px solid lightgray;
+    font-style: italic;
+}
+
+.jumbotron {
+    background-color: #74A6E7;
+    font-style: italic;
+    text-align: center;
+}
+
+h1 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+body {
+        background-color: #9cc2f4;
+}
+
